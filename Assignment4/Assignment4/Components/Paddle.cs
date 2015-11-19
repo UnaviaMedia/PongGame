@@ -31,6 +31,12 @@ namespace Assignment4
 			set { position = value; }
 		}
 
+		public Vector2 Speed
+		{
+			get { return speed; }
+			set { speed = value; }
+		}
+
 		public Rectangle CollisionBounds
 		{
 			get
