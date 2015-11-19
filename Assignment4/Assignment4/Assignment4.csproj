@@ -75,6 +75,7 @@
     <Compile Include="Components\Ball.cs" />
     <Compile Include="Components\CollisionManager.cs" />
     <Compile Include="Components\Paddle.cs" />
+    <Compile Include="Components\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PongGame.cs" />
