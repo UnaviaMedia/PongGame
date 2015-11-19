@@ -18,10 +18,15 @@ namespace Assignment4
 	public class SoundManager : GameComponent
 	{
 		private Dictionary<string, SoundEffect> soundEffects;
-
+		
+		/// <summary>
+		/// Create a new SoundManager object
+		/// </summary>
+		/// <param name="game">Game reference for the component</param>
 		public SoundManager(Game game)
 			: base(game)
 		{
+			//Create a new sound effect dictionary and load sound effects into it
 			soundEffects = new Dictionary<string, SoundEffect>();
 			soundEffects.Add("click", Game.Content.Load<SoundEffect>("Sounds/click"));
 			soundEffects.Add("ding", Game.Content.Load<SoundEffect>("Sounds/ding"));
@@ -34,7 +39,6 @@ namespace Assignment4
 		/// </summary>
 		public override void Initialize()
 		{
-
 			base.Initialize();
 		}
 
@@ -46,8 +50,11 @@ namespace Assignment4
 		{
 			base.Update(gameTime);
 		}
-
-
+		
+		/// <summary>
+		/// Plays a specified soundeffect
+		/// </summary>
+		/// <param name="sound">Soundeffect to play</param>
 		public void PlaySound(string sound)
 		{
 			//Play the selected sound
