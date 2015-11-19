@@ -49,6 +49,19 @@ namespace Assignment4
 
 				if (ballBounds.Intersects(paddleBounds))
 				{
+					
+					if (ballBounds.X > paddleBounds.X + paddleBounds.Width)
+					{
+						ballBounds.X = paddleBounds.X + paddleBounds.Width;
+					}
+					else
+					{
+						ballBounds.X = paddleBounds.X;
+					}
+
+
+
+
 					ball.Speed = new Vector2(ball.Speed.X * -1, ball.Speed.Y);
 				}
 			}

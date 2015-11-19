@@ -25,7 +25,7 @@ namespace Assignment4
 		private Keys upKey;
 		private Keys downKey;
 
-		public const Vector2 paddleSpeed = new Vector2(5, 5);
+		public const int PADDLE_SPEED = 5;
 
 		public Vector2 Position
 		{
@@ -54,7 +54,7 @@ namespace Assignment4
 			this.spriteBatch = spriteBatch;
 			this.texture = texture;
 			this.position = position;
-			this.speed = paddleSpeed;
+			this.speed = new Vector2(0, PADDLE_SPEED);
 
 			this.upKey = upKey;
 			this.downKey = downKey;
@@ -83,7 +83,7 @@ namespace Assignment4
 			{
 				if (position.Y > 0)
 				{
-					position.Y -= 5; 
+					position -= speed;
 				}
 				else
 				{
@@ -94,7 +94,7 @@ namespace Assignment4
 			{
 				if (position.Y + texture.Height < Settings.stage.Y)
 				{
-					position.Y += 5; 
+					position += speed;
 				}
 				else
 				{
