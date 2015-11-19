@@ -17,14 +17,14 @@ namespace Assignment4
 	/// </summary>
 	public class CollisionManager : GameComponent
 	{
-		private Game game;
+		//private Game game;
 		private List<Paddle> playerList;
 		private Ball ball;
 
 		public CollisionManager(Game game, List<Paddle> playerList, Ball ball)
 			: base(game)
 		{
-			this.game = game;
+			//this.game = game;
 			this.playerList = playerList;
 			this.ball = ball;
 		}
@@ -97,7 +97,7 @@ namespace Assignment4
 					ball.Position = collisionPosition;
 
 					//Play a sound
-					SoundManager.PlaySound(game, "click");
+					SoundManager.PlaySound("click");
 				}
 			}
 
