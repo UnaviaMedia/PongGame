@@ -133,7 +133,7 @@ namespace Assignment4
 			spriteBatch.Begin();
 			spriteBatch.Draw(texture, position, Color.White);
 			spriteBatch.End();
-			
+
 			base.Draw(gameTime);
 		}
 
