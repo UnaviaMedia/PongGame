@@ -92,6 +92,28 @@ namespace Assignment4
             {
                 speed.Y = -speed.Y;
             }
+
+            if (position.X < 0)
+            {
+                //TODO: player 2 wins
+                Reset();
+            }
+            if (position.X > stage.X)
+            {
+                //TODO: player 1 wins
+                Reset();
+            }
+
+            KeyboardState ks = Keyboard.GetState();
+            if (ks.IsKeyDown(Keys.Escape))
+            {
+                Reset();
+            }
+            if (ks.IsKeyDown(Keys.Enter))
+            {
+                speed = new Vector2(3, -3);
+            }
+
             base.Update(gameTime);
         }
 
@@ -106,7 +128,8 @@ namespace Assignment4
         private void Reset()
         {
             position = initialPosition;
-
+            speed = Vector2.Zero;
+            Enabled = true;
         }
     }
 }
