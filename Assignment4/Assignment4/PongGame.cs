@@ -16,18 +16,23 @@ namespace Assignment4
     /// </summary>
     public class PongGame : Game
     {
-        const int WIN_SCORE = 2;
+		//Graphics components
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
-        private SpriteFont gameFont;
+		//Player list and ball
         private List<Paddle> playerList;
         private Paddle player1;
         private Paddle player2;
         private Ball ball;
+
+		//Player score
+        private SpriteFont gameFont;
         private Scoreboard player1ScoreBoard;
         private Scoreboard player2ScoreBoard;
+        const int WIN_SCORE = 2;
 
+		//Game managers
 		private CollisionManager collisionManager;
 		public static SoundManager soundManager;
 
