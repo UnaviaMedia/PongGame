@@ -85,8 +85,7 @@ namespace Assignment4
 
             //Create a new list of players
             playerList = new List<Paddle>();
-
-
+			
             gameFont = Content.Load<SpriteFont>("Fonts/ScoreFont");
             player1ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(0, 0), "Doug", true);
             this.Components.Add(player1ScoreBoard);
@@ -98,12 +97,12 @@ namespace Assignment4
             Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
 
             //Create player 1
-            Vector2 paddle1Position = new Vector2(25, 50);
+            Vector2 paddle1Position = new Vector2(25, Settings.stage.Y / 2 - paddleTexture.Height / 2);
             player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, Keys.A, Keys.Z);
             playerList.Add(player1);
 
             //Create player 2
-            Vector2 paddle2Position = new Vector2(Settings.stage.X - paddleTexture.Width - 25, 50);
+			Vector2 paddle2Position = new Vector2(Settings.stage.X - paddleTexture.Width - 25, Settings.stage.Y / 2 - paddleTexture.Height / 2);
             player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, Keys.Up, Keys.Down);
             playerList.Add(player2);
 

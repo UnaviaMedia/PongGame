@@ -136,5 +136,13 @@ namespace Assignment4
 			
 			base.Draw(gameTime);
 		}
+
+		/// <summary>
+		/// Update the position of the paddle (after a point is won)
+		/// </summary>
+		public void Reset()
+		{
+			position = new Vector2(position.X, Settings.stage.Y / 2 - texture.Height / 2);
+		}
 	}
 }
