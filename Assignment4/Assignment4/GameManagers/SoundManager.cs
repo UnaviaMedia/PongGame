@@ -17,10 +17,13 @@ namespace Assignment4
 	/// </summary>
 	public class SoundManager : GameComponent
 	{
+		private static Game game;
+		private static Dictionary<string, SoundEffect> soundEffects;
+
 		public SoundManager(Game game)
 			: base(game)
 		{
-
+			game = Game;
 		}
 
 		/// <summary>
@@ -42,10 +45,15 @@ namespace Assignment4
 		}
 
 
-		public static void PlaySound(Game game, string soundPath)
+		public static void PlaySound(string sound)
 		{
-			SoundEffect sound = game.Content.Load<SoundEffect>("Sounds/" + soundPath);
-			sound.Play();
+			if (soundEffects.ContainsKey(sound) == false)
+			{
+				soundEffects.Add(sound, game.Content.Load<SoundEffect>("Sounds/" + sound));
+			}
+
+			//Play the selected sound
+			soundEffects[sound].Play();
 		}
 	}
 }
