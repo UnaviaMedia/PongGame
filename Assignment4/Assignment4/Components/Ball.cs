@@ -124,12 +124,19 @@ namespace Assignment4
 
             base.Draw(gameTime);
         }
+        /// <summary>
+        /// Resets ball position and speed
+        /// </summary>
         public void Reset()
         {
             position = initialPosition;
             speed = Vector2.Zero;
             isMoving = false;
         }
+        /// <summary>
+        /// Generates random speed
+        /// </summary>
+        /// <returns>A random speed between min and max speed</returns>
         private Vector2 GetSpeed()
         {
             Random rand = new Random();
@@ -143,6 +150,9 @@ namespace Assignment4
             Vector2 newSpeed = new Vector2(newSpeedX, newSpeedY);
             return newSpeed;
         }
+        /// <summary>
+        /// Starts ball moving
+        /// </summary>
         private void StartMoving()
         {
             speed = GetSpeed();
