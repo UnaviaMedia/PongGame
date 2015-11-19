@@ -30,6 +30,19 @@ namespace Assignment4
         private SpriteFont gameFont;
         private Scoreboard player1ScoreBoard;
         private Scoreboard player2ScoreBoard;
+        private bool gameOn;
+        private bool gameOver;
+        public bool GameOn
+        {
+            get { return gameOn; }
+            set { gameOn = value; }
+        }
+        public bool GameOver
+        {
+            get { return gameOver; }
+            set { gameOver = value; }
+        }
+
         const int WIN_SCORE = 2;
 
 		//Game managers
@@ -56,6 +69,7 @@ namespace Assignment4
         /// </summary>
         protected override void Initialize()
         {
+            gameOn = false;
             base.Initialize();
         }
 
@@ -148,6 +162,21 @@ namespace Assignment4
                 }
             }
 
+            if(keyboardState.IsKeyDown(Keys.Enter))
+            {
+                gameOn = true;
+            }
+
+            if (ScoreManager.Player1Wins)
+            {
+                //TODO: Win condition handling
+                gameOn = false;
+            }
+            if (ScoreManager.Player2Wins)
+            {
+                //TODO: Win condition handling
+                gameOn = false;
+            }
 
             base.Update(gameTime);
         }
