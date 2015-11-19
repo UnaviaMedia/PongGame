@@ -192,7 +192,9 @@ namespace Assignment4
 
             base.Draw(gameTime);
         }
-
+        /// <summary>
+        /// Resets the ball, score and paddles to their initial state
+        /// </summary>
         public void ResetGame()
         {
             gameOn = false;
@@ -208,6 +210,9 @@ namespace Assignment4
             }
             ball.Enabled = true;
         }
+        /// <summary>
+        /// Ends and disables the game
+        /// </summary>
         public void EndGame()
         {
             gameOn = false;
@@ -219,7 +224,10 @@ namespace Assignment4
             }
             ball.Enabled = false;
         }
-
+        /// <summary>
+        /// Displays the winner in a blinking string
+        /// </summary>
+        /// <param name="winner">The winner's name</param>
         public void showWinner(string winner)
         {
             winString = new WinnerString(this, spriteBatch, gameFont, winner);
