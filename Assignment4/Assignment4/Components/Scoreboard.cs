@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 
-namespace Assignment4.Components
+namespace Assignment4
 {
     /// <summary>
     /// This is a game component that implements IUpdateable.
@@ -30,6 +30,7 @@ namespace Assignment4.Components
             this.font = font;
             this.name = name;
             this.isPlayer1 = isPlayer1;
+            this.position = position;
         }
 
         /// <summary>
@@ -62,6 +63,9 @@ namespace Assignment4.Components
         }
         public override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin();
+            spriteBatch.DrawString(font, name + "\n" + score, position, Color.Wheat);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
