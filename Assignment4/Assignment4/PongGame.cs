@@ -28,12 +28,16 @@ namespace Assignment4
         private Scoreboard player1ScoreBoard;
         private Scoreboard player2ScoreBoard;
 
+		private CollisionManager collisionManager;
+		public static SoundManager soundManager;
+
         public PongGame()
         {
             graphics = new GraphicsDeviceManager(this);
-
-            Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             Content.RootDirectory = "Content";
+
+			//Store the size of the game window
+            Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
         }
 
         /// <summary>
@@ -56,10 +60,9 @@ namespace Assignment4
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
+			//Create a new list of players
             playerList = new List<Paddle>();
 
-            Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
 
             gameFont = Content.Load<SpriteFont>("Fonts/ScoreFont");
             player1ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(0, 0), "Doug", true);
@@ -68,25 +71,37 @@ namespace Assignment4
             player2ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(Settings.stage.X - 72, 0), "Kendall", false);
             this.Components.Add(player2ScoreBoard);
 
+			//Load the paddle texture
+            Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
+
+			//Create the player 1
             Vector2 paddle1Position = new Vector2(25, 50);
             player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, Keys.A, Keys.Z);
             playerList.Add(player1);
 
+			//Create player 2
             Vector2 paddle2Position = new Vector2(Settings.stage.X - paddleTexture.Width - 25, 50);
             player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, Keys.Up, Keys.Down);
             playerList.Add(player2);
 
+			//Create the ball
             Texture2D ballTexture = Content.Load<Texture2D>("Images/Ball");
             ball = new Ball(this, spriteBatch, ballTexture);
             this.Components.Add(ball);
 
+			//Add each player to the GameComponents list
             foreach (Paddle paddle in playerList)
             {
                 this.Components.Add(paddle);
             }
 
-            CollisionManager collisionManager = new CollisionManager(this, playerList, ball);
+			//Create a new collision manager
+            collisionManager = new CollisionManager(this, playerList, ball);
             this.Components.Add(collisionManager);
+
+			//Create a new sound manager
+			soundManager = new SoundManager(this);
+			this.Components.Add(soundManager);
         }
 
         /// <summary>
