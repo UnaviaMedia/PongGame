@@ -212,6 +212,7 @@ namespace Assignment4
         {
             gameOn = false;
             gameOver = true;
+            soundManager.PlaySound("applause");
             foreach (var item in playerList)
             {
                 item.Enabled = false;
