@@ -28,6 +28,8 @@ namespace Assignment4
 		public PongGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
+			graphics.PreferredBackBufferWidth = 1000;
+			graphics.PreferredBackBufferHeight = 750;
 
 			Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			Content.RootDirectory = "Content";
