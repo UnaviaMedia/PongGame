@@ -30,10 +30,10 @@ namespace Assignment4
         {
             this.spriteBatch = spriteBatch;
             this.font = font;
-            this.message = message + " Wins!";
+            this.message = message + " Wins!\n(Press space to reset)";
 
             delay = 50;
-            position = new Vector2(Settings.stage.X / 2 - font.MeasureString(message).X/2, 50);
+            position = new Vector2(Settings.stage.X / 2 - font.MeasureString(message).X, 50);
         }
 
         /// <summary>
@@ -42,7 +42,6 @@ namespace Assignment4
         /// </summary>
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
 
             base.Initialize();
         }
@@ -62,6 +61,7 @@ namespace Assignment4
 
             base.Update(gameTime);
         }
+
         public override void Draw(GameTime gameTime)
         {
             if (!flag)
