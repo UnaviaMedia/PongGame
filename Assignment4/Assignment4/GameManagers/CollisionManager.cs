@@ -97,7 +97,7 @@ namespace Assignment4
 					ball.Position = collisionPosition;
 
 					//Play a sound
-					SoundManager.PlaySound(game, "click");
+					//SoundManager.PlaySound(game, "click");
 				}
 			}
 

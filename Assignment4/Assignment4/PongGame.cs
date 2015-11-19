@@ -114,14 +114,15 @@ namespace Assignment4
             {
                 this.Exit();
             }
+
             if (keyboardState.IsKeyDown(Keys.Space))
             {
                 if(!ball.IsMoving)
                 {
                     ball.Reset();
-                    //TODO: reset paddles and scores
+                    ScoreManager.Reset(); 
+                    //TODO: reset paddles 
                 }
-                
             }
 
 
