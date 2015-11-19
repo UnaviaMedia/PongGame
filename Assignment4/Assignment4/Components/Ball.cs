@@ -57,9 +57,11 @@ namespace Assignment4
         {
             this.spriteBatch = spriteBatch;
             this.texture = texture;
-            this.initialPosition = new Vector2(PongGame.stage.X / 2 - texture.Width / 2, PongGame.stage.Y / 2 - texture.Height / 2);
 
-            this.position = initialPosition;
+            stage = Settings.stage;
+            initialPosition = new Vector2(stage.X / 2 - texture.Width / 2, stage.Y / 2 - texture.Height / 2);
+            position = initialPosition;
+            speed = new Vector2(5, -5);
         }
 
         /// <summary>
@@ -82,7 +84,7 @@ namespace Assignment4
             position.Y += speed.Y;
             position.X += speed.X;
 
-            if (position.Y <= 0)
+            if (position.Y < 0)
             {
                 speed.Y = Math.Abs(speed.Y);
             }
