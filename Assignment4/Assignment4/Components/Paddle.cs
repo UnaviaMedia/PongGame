@@ -48,6 +48,15 @@ namespace Assignment4
 			}
 		}
 
+		/// <summary>
+		/// Create a new Paddle object
+		/// </summary>
+		/// <param name="game">Game reference for the component</param>
+		/// <param name="spriteBatch">SpriteBatch reference for drawing the component</param>
+		/// <param name="texture">Texture for drawing the component</param>
+		/// <param name="position">Position of the component</param>
+		/// <param name="upKey">Key that moves the component up</param>
+		/// <param name="downKey">Key that moves the component down</param>
 		public Paddle(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Keys upKey, Keys downKey)
 			: base(game)
 		{
@@ -75,10 +84,12 @@ namespace Assignment4
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		public override void Update(GameTime gameTime)
 		{
+			//Get the current keyboard state
 			KeyboardState keyboardState = Keyboard.GetState();
 
 			if (keyboardState.IsKeyDown(upKey))
 			{
+				//Move the paddle up if possible.
 				if (position.Y > 0)
 				{
 					position -= speed;
@@ -90,6 +101,7 @@ namespace Assignment4
 			}
 			else if (keyboardState.IsKeyDown(downKey))
 			{
+				//Move the paddle down if possible
 				if (position.Y + texture.Height < Settings.stage.Y)
 				{
 					position += speed;
@@ -104,6 +116,10 @@ namespace Assignment4
 		}
 
 
+		/// <summary>
+		/// Draw the game component
+		/// </summary>
+		/// <param name="gameTime">Provides a snapshot of timing values</param>
 		public override void Draw(GameTime gameTime)
 		{
 			spriteBatch.Begin();
