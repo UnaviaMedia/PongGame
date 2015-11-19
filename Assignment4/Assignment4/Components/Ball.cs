@@ -23,6 +23,11 @@ namespace Assignment4
         private Texture2D texture;
         private Vector2 position;
         private bool isMoving;
+        public bool IsMoving
+        {
+            get { return isMoving; }
+            set { isMoving = value; }
+        }
         private Vector2 initialPosition;
         private Vector2 speed;
 
@@ -91,19 +96,18 @@ namespace Assignment4
             if (position.X < -texture.Width)
             {
                 ScoreManager.Player2Score++;
+                ScoreManager.Player1WonLastGame = false;
                 Reset();
             }
             if (position.X > stage.X)
             {
                 ScoreManager.Player1Score++;
+                ScoreManager.Player1WonLastGame = true;
                 Reset();
             }
 
             KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Space))
-            {
-                Reset();
-            }
+
             if (ks.IsKeyDown(Keys.Enter) && !isMoving)
             {
                 StartMoving();
@@ -120,7 +124,7 @@ namespace Assignment4
 
             base.Draw(gameTime);
         }
-        private void Reset()
+        public void Reset()
         {
             position = initialPosition;
             speed = Vector2.Zero;
@@ -130,6 +134,10 @@ namespace Assignment4
         {
             Random rand = new Random();
             int newSpeedX = rand.Next(MIN_SPEED, MAX_SPEED);
+            if(ScoreManager.Player1WonLastGame)
+            {
+                newSpeedX = -newSpeedX;
+            }
             int newSpeedY = -rand.Next(MIN_SPEED, MAX_SPEED);
 
             Vector2 newSpeed = new Vector2(newSpeedX, newSpeedY);

@@ -16,6 +16,7 @@ namespace Assignment4
     /// </summary>
     public class PongGame : Game
     {
+        const int WIN_SCORE = 2;
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
@@ -107,10 +108,20 @@ namespace Assignment4
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+
             KeyboardState keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
                 this.Exit();
+            }
+            if (keyboardState.IsKeyDown(Keys.Space))
+            {
+                if(!ball.IsMoving)
+                {
+                    ball.Reset();
+                    //TODO: reset paddles and scores
+                }
+                
             }
 
 
