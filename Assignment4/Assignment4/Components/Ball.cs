@@ -12,7 +12,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Assignment4
 {
-    //Test test test
 	/// <summary>
 	/// This is a game component that implements IUpdateable.
 	/// </summary>
@@ -21,9 +20,10 @@ namespace Assignment4
 		private SpriteBatch spriteBatch;
 		private Texture2D texture;
 		private Vector2 position;
+        private Vector2 initialPosition;
 		private Vector2 speed;
+        private Vector2 stage;
 		private Rectangle collisionBounds;
-
 
 		public Vector2 Position
 		{
@@ -46,6 +46,8 @@ namespace Assignment4
 			this.spriteBatch = spriteBatch;
 			this.texture = texture;
 			this.position = position;
+
+
 		}
 
 		/// <summary>
@@ -66,7 +68,6 @@ namespace Assignment4
 		public override void Update(GameTime gameTime)
 		{
 			// TODO: Add your update code here
-
 			base.Update(gameTime);
 		}
 
@@ -78,5 +79,9 @@ namespace Assignment4
 			
 			base.Draw(gameTime);
 		}
+        private void Reset()
+        {
+            position = 
+        }
 	}
 }
