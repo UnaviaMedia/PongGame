@@ -15,22 +15,25 @@ namespace Assignment4
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class Scoreboard : Microsoft.Xna.Framework.DrawableGameComponent
+    public class WinnerString : Microsoft.Xna.Framework.DrawableGameComponent
     {
         private SpriteBatch spriteBatch;
         private SpriteFont font;
+        private string message;
+        private int delay;
+        private int delayCounter;
+        private bool flag;
         private Vector2 position;
-        private string name;
-        private int score;
-        private bool isPlayer1;
-        public Scoreboard(Game game, SpriteBatch spriteBatch, SpriteFont font, Vector2 position, string name, bool isPlayer1)
+
+        public WinnerString(Game game, SpriteBatch spriteBatch, SpriteFont font, string message)
             : base(game)
         {
             this.spriteBatch = spriteBatch;
             this.font = font;
-            this.name = name;
-            this.isPlayer1 = isPlayer1;
-            this.position = position;
+            this.message = message + " Wins!\n(Press space to reset)";
+
+            delay = 50;
+            position = new Vector2(Settings.stage.X / 2 - font.MeasureString(message).X, 50);
         }
 
         /// <summary>
@@ -39,6 +42,7 @@ namespace Assignment4
         /// </summary>
         public override void Initialize()
         {
+
             base.Initialize();
         }
 
@@ -48,22 +52,25 @@ namespace Assignment4
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            if (isPlayer1)
+            delayCounter++;
+            if (delayCounter > delay)
             {
-                score = ScoreManager.Player1Score;
-            }
-            else
-            {
-                score = ScoreManager.Player2Score;
+                flag = !flag;
+                delayCounter = 0;
             }
 
             base.Update(gameTime);
         }
+
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
-            spriteBatch.DrawString(font, name + "\n" + score, position, Color.Wheat);
-            spriteBatch.End();
+            if (!flag)
+            {
+                spriteBatch.Begin();
+                spriteBatch.DrawString(font, message, position, Color.Red);
+                spriteBatch.End();
+            }
+
             base.Draw(gameTime);
         }
     }
