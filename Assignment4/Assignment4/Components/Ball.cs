@@ -23,11 +23,6 @@ namespace Assignment4
         private Texture2D texture;
         private Vector2 position;
         private bool isMoving;
-        public Vector2 Position1
-        {
-            get { return position; }
-            set { position = value; }
-        }
         private Vector2 initialPosition;
         private Vector2 speed;
 
@@ -95,12 +90,12 @@ namespace Assignment4
 
             if (position.X < -texture.Width)
             {
-                //TODO: player 2 wins
+                ScoreManager.Player2Score++;
                 Reset();
             }
             if (position.X > stage.X)
             {
-                //TODO: player 1 wins
+                ScoreManager.Player1Score1++;
                 Reset();
             }
 
