@@ -17,10 +17,12 @@ namespace Assignment4
     /// </summary>
     public class Ball : DrawableGameComponent
     {
+        const int MIN_SPEED = 3;
+        const int MAX_SPEED = 9;
         private SpriteBatch spriteBatch;
         private Texture2D texture;
         private Vector2 position;
-
+        private bool isMoving;
         public Vector2 Position1
         {
             get { return position; }
@@ -61,7 +63,8 @@ namespace Assignment4
             stage = Settings.stage;
             initialPosition = new Vector2(stage.X / 2 - texture.Width / 2, stage.Y / 2 - texture.Height / 2);
             position = initialPosition;
-            speed = new Vector2(5, -5);
+            speed = GetSpeed();
+            isMoving = false;
         }
 
         /// <summary>
@@ -70,8 +73,6 @@ namespace Assignment4
         /// </summary>
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
-
             base.Initialize();
         }
 
@@ -109,9 +110,10 @@ namespace Assignment4
             {
                 Reset();
             }
-            if (ks.IsKeyDown(Keys.Enter))
+            if (ks.IsKeyDown(Keys.Enter) && !isMoving)
             {
-                speed = new Vector2(3, -3);
+                speed = GetSpeed();
+                isMoving = true;
             }
 
             base.Update(gameTime);
@@ -129,7 +131,16 @@ namespace Assignment4
         {
             position = initialPosition;
             speed = Vector2.Zero;
-            Enabled = true;
+            isMoving = false;
+        }
+        private Vector2 GetSpeed()
+        {
+            Random rand = new Random();
+            int newSpeedX = rand.Next(MIN_SPEED, MAX_SPEED);
+            int newSpeedY = -rand.Next(MIN_SPEED, MAX_SPEED);
+
+            Vector2 newSpeed = new Vector2(newSpeedX, newSpeedY);
+            return newSpeed;
         }
     }
 }
