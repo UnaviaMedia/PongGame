@@ -76,7 +76,7 @@
     <Compile Include="GameManagers\CollisionManager.cs" />
     <Compile Include="Components\Paddle.cs" />
     <Compile Include="Components\Scoreboard.cs" />
-    <Compile Include="Components\ScoreManager.cs" />
+    <Compile Include="GameManagers\ScoreManager.cs" />
     <Compile Include="Components\Settings.cs" />
     <Compile Include="GameManagers\SoundManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
