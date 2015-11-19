@@ -77,16 +77,29 @@ namespace Assignment4
 						}
 
 						//Get the vertical distance between the ball and paddle centers (positive is ball center below paddle center)
-						int verticalDistance =  (ballBounds.Y + ballBounds.Height / 2) - (paddleBounds.Y + paddleBounds.Height / 2);
+						int verticalIntersectDistance =  (ballBounds.Y + ballBounds.Height / 2) - (paddleBounds.Y + paddleBounds.Height / 2);
+						double normalizedVerticalIntersectDistance = verticalIntersectDistance / (paddleBounds.Height / 2);
 
-						if (verticalDistance > 0)
+						//double MAX_BOUNCE_ANGLE = (Math.PI * 180) * 75;
+						double MAX_BOUNCE_ANGLE = 5 * Math.PI / 12;
+
+						double bounceAngle = normalizedVerticalIntersectDistance * MAX_BOUNCE_ANGLE;
+
+						int ballSpeedX = (int)(ball.Speed.X * Math.Cos(bounceAngle));
+						int ballSpeedY = (int)(ball.Speed.X * Math.Cos(bounceAngle));
+
+
+
+						/*if (verticalIntersectDistance > 0)
 						{
 							Console.WriteLine("Ball return down");
+							//ball.Speed = new Vector2(ball.Speed.X, Math.Abs(ball.Speed.Y));
 						}
 						else
 						{
 							Console.WriteLine("Ball return up");
-						}
+							//ball.Speed = new Vector2(ball.Speed.X, -Math.Abs(ball.Speed.Y));
+						}*/
 
 
 
