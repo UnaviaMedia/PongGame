@@ -64,7 +64,7 @@ namespace Assignment4
             player1ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(0, 0), "Doug", true);
             this.Components.Add(player1ScoreBoard);
 
-            player2ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(Settings.stage.X - 72, 0), "Kendall", true);
+            player2ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(Settings.stage.X - 72, 0), "Kendall", false);
             this.Components.Add(player2ScoreBoard);
 
             Vector2 paddle1Position = new Vector2(25, 50);
