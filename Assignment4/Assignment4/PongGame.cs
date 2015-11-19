@@ -70,6 +70,7 @@ namespace Assignment4
         protected override void Initialize()
         {
             gameOn = false;
+            gameOver = false;
             base.Initialize();
         }
 
@@ -164,7 +165,10 @@ namespace Assignment4
 
             if(keyboardState.IsKeyDown(Keys.Enter))
             {
-                gameOn = true;
+                if (!gameOver)
+                {
+                    gameOn = true;
+                }
             }
 
             if (ScoreManager.Player1Wins)
