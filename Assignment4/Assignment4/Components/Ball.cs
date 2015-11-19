@@ -95,7 +95,7 @@ namespace Assignment4
             }
             if (position.X > stage.X)
             {
-                ScoreManager.Player1Score1++;
+                ScoreManager.Player1Score++;
                 Reset();
             }
 
