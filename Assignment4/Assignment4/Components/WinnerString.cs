@@ -33,7 +33,7 @@ namespace Assignment4
             this.message = message + " Wins!";
 
             delay = 50;
-            position = new Vector2(Settings.stage.X / 2, Settings.stage.Y / 2);
+            position = new Vector2(Settings.stage.X / 2 - font.MeasureString(message).X/2, 50);
         }
 
         /// <summary>
