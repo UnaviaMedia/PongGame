@@ -30,6 +30,7 @@ namespace Assignment4
         private SpriteFont gameFont;
         private Scoreboard player1ScoreBoard;
         private Scoreboard player2ScoreBoard;
+        private string winner;
         private bool gameOn;
         private bool gameOver;
         public bool GameOn
@@ -195,6 +196,7 @@ namespace Assignment4
 
         public void ResetGame()
         {
+            gameOn = false;
             gameOver = false;
             ball.Reset();
             ScoreManager.Reset();
