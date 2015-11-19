@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Ball.cs" />
+    <Compile Include="Components\WinnerString.cs" />
     <Compile Include="GameManagers\CollisionManager.cs" />
     <Compile Include="Components\Paddle.cs" />
     <Compile Include="Components\Scoreboard.cs" />

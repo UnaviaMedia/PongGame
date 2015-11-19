@@ -25,12 +25,12 @@ namespace Assignment4
         private Paddle player1;
         private Paddle player2;
         private Ball ball;
+        private WinnerString winString;
 
         //Player score
         private SpriteFont gameFont;
         private Scoreboard player1ScoreBoard;
         private Scoreboard player2ScoreBoard;
-        private string winner;
         private bool gameOn;
         private bool gameOver;
         public bool GameOn
@@ -160,14 +160,16 @@ namespace Assignment4
                 }
             }
 
-            if (ScoreManager.Player1Score >= 2)
+            if (ScoreManager.Player1Score >= 2 && !gameOver)
             {
                 //TODO: Win condition handling
+                showWinner("Doug");
                 EndGame();
             }
-            if (ScoreManager.Player2Score >= 2)
+            if (ScoreManager.Player2Score >= 2 && !gameOver)
             {
                 //TODO: Win condition handling
+                showWinner("Kendall");
                 EndGame();
             }
 
@@ -199,7 +201,7 @@ namespace Assignment4
             gameOver = false;
             ball.Reset();
             ScoreManager.Reset();
-            //TODO: reset paddles 
+            this.Components.Remove(winString);
 
             foreach (var item in playerList)
             {
@@ -217,6 +219,12 @@ namespace Assignment4
                 item.Enabled = false;
             }
             ball.Enabled = false;
+        }
+
+        public void showWinner(string winner)
+        {
+            winString = new WinnerString(this, spriteBatch, gameFont, winner);
+            this.Components.Add(winString);
         }
     }
 }
