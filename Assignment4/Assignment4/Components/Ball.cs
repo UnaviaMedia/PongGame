@@ -82,19 +82,18 @@ namespace Assignment4
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            position.Y += speed.Y;
-            position.X += speed.X;
-
-            if (position.Y < 0)
+            if (isMoving)
             {
-                speed.Y = Math.Abs(speed.Y);
+                position.Y += speed.Y;
+                position.X += speed.X;
             }
-            else if (position.Y > stage.Y - texture.Height)
+
+            if (position.Y < 0 || position.Y > stage.Y - texture.Height)
             {
                 speed.Y = -speed.Y;
             }
 
-            if (position.X < 0)
+            if (position.X < -texture.Width)
             {
                 //TODO: player 2 wins
                 Reset();
@@ -112,8 +111,7 @@ namespace Assignment4
             }
             if (ks.IsKeyDown(Keys.Enter) && !isMoving)
             {
-                speed = GetSpeed();
-                isMoving = true;
+                StartMoving();
             }
 
             base.Update(gameTime);
@@ -141,6 +139,11 @@ namespace Assignment4
 
             Vector2 newSpeed = new Vector2(newSpeedX, newSpeedY);
             return newSpeed;
+        }
+        private void StartMoving()
+        {
+            speed = GetSpeed();
+            isMoving = true;
         }
     }
 }
