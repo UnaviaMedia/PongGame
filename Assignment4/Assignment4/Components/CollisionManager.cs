@@ -42,7 +42,16 @@ namespace Assignment4
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		public override void Update(GameTime gameTime)
 		{
-			
+			foreach (Paddle paddle in playerList)
+			{
+				Rectangle paddleBounds = paddle.CollisionBounds;
+				Rectangle ballBounds = ball.CollisionBounds;
+
+				if (ballBounds.Intersects(paddleBounds))
+				{
+					
+				}
+			}
 
 			base.Update(gameTime);
 		}
