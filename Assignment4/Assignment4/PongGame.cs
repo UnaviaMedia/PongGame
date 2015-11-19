@@ -68,8 +68,8 @@ namespace Assignment4
 			playerList.Add(player2);
 
 			Texture2D ballTexture = Content.Load<Texture2D>("Images/Ball");
-			//Vector2 ballPosition = new Vector2(150, 150);
-			ball = new Ball(this, spriteBatch, ballTexture);
+			Vector2 ballPosition = new Vector2(150, 150);
+			ball = new Ball(this, spriteBatch, ballTexture, ballPosition);
 			this.Components.Add(ball);
 
 			foreach (Paddle paddle in playerList)
