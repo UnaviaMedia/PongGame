@@ -63,7 +63,7 @@ namespace Assignment4
 			player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, paddleSpeed, Keys.A, Keys.Z);
 			playerList.Add(player1);
 
-			Vector2 paddle2Position = new Vector2(stage.X - paddleTexture.Width - 25, 50);
+			Vector2 paddle2Position = new Vector2(Settings.stage.X - paddleTexture.Width - 25, 50);
 			player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, paddleSpeed, Keys.Up, Keys.Down);
 			playerList.Add(player2);
 
