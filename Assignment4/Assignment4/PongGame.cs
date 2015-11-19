@@ -18,7 +18,6 @@ namespace Assignment4
 	{
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
-		public static Vector2 stage;
 
 		private SpriteFont gameFont;
 		private List<Paddle> playerList;
@@ -54,7 +53,7 @@ namespace Assignment4
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+			Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			playerList = new List<Paddle>();
 
 			Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
