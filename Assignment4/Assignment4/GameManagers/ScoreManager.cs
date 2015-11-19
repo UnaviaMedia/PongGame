@@ -52,7 +52,6 @@ namespace Assignment4
         /// </summary>
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
 
             base.Initialize();
         }
@@ -64,6 +63,13 @@ namespace Assignment4
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+        }
+
+        public static void Reset()
+        {
+            player1Score = 0;
+            player2Score = 0;
+            player1WonLastGame = false;
         }
     }
 }

@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Assignment4
 {
     /// <summary>
-    /// This is a game component that implements IUpdateable.
+    /// A class to represent the ball in a game of Pong
     /// </summary>
     public class Ball : DrawableGameComponent
     {
