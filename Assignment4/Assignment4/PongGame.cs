@@ -21,6 +21,7 @@ namespace Assignment4
 		public static Vector2 stage;
 
 		private SpriteFont gameFont;
+		private List<Paddle> playerList;
 		private Paddle player1;
 		private Paddle player2;
 		private Ball ball;
@@ -60,16 +61,24 @@ namespace Assignment4
 
 			Vector2 paddle1Position = new Vector2(25, 50);
 			player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, paddleSpeed, Keys.A, Keys.Z);
-			this.Components.Add(player1);
+			playerList.Add(player1);
 
 			Vector2 paddle2Position = new Vector2(stage.X - paddleTexture.Width - 25, 50);
 			player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, paddleSpeed, Keys.Up, Keys.Down);
-			this.Components.Add(player2);
+			playerList.Add(player2);
 
 			Texture2D ballTexture = Content.Load<Texture2D>("Images/Ball");
-			Vector2 ballPosition = new Vector2(150, 150);
-			ball = new Ball(this, spriteBatch, ballTexture, ballPosition);
+			//Vector2 ballPosition = new Vector2(150, 150);
+			ball = new Ball(this, spriteBatch, ballTexture);
 			this.Components.Add(ball);
+
+			foreach (Paddle paddle in playerList)
+			{
+				this.Components.Add(paddle);
+			}
+
+			CollisionManager collisionManager = new CollisionManager(this, playerList, ball);
+			this.Components.Add(collisionManager);
 		}
 
 		/// <summary>
@@ -92,7 +101,7 @@ namespace Assignment4
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
 				this.Exit();
 
-			// TODO: Add your update logic here
+			
 
 			base.Update(gameTime);
 		}
