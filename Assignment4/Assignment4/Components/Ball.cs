@@ -52,12 +52,12 @@ namespace Assignment4
             }
         }
 
-        public Ball(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 stage)
+        public Ball(Game game, SpriteBatch spriteBatch, Texture2D texture)
             : base(game)
         {
             this.spriteBatch = spriteBatch;
             this.texture = texture;
-            this.initialPosition = new Vector2(stage.X / 2 - texture.Width / 2, stage.Y / 2 - texture.Height / 2);
+            this.initialPosition = new Vector2(PongGame.stage.X / 2 - texture.Width / 2, PongGame.stage.Y / 2 - texture.Height / 2);
 
             this.position = initialPosition;
         }
