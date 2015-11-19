@@ -31,6 +31,9 @@ namespace Assignment4
 		private CollisionManager collisionManager;
 		public static SoundManager soundManager;
 
+		/// <summary>
+		/// Create and initialize the PongGame
+		/// </summary>
         public PongGame()
         {
             graphics = new GraphicsDeviceManager(this);
