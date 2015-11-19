@@ -17,14 +17,18 @@ namespace Assignment4
 	/// </summary>
 	public class CollisionManager : GameComponent
 	{
-		//private Game game;
 		private List<Paddle> playerList;
 		private Ball ball;
 
+		/// <summary>
+		/// Create a new CollisionManager object
+		/// </summary>
+		/// <param name="game">Game reference for the component</param>
+		/// <param name="playerList">List of players (paddles)</param>
+		/// <param name="ball">Ball reference</param>
 		public CollisionManager(Game game, List<Paddle> playerList, Ball ball)
 			: base(game)
 		{
-			//this.game = game;
 			this.playerList = playerList;
 			this.ball = ball;
 		}
