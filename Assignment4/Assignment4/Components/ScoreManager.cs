@@ -31,15 +31,21 @@ namespace Assignment4
             set { ScoreManager.player2Score = value; }
         }
 
+        private static bool player1WonLastGame;
 
+        public static bool Player1WonLastGame
+        {
+            get { return player1WonLastGame; }
+            set { player1WonLastGame = value; }
+        }
 
         public ScoreManager(Game game)
             : base(game)
         {
             player1Score = 0;
             player2Score = 0;
+            player1WonLastGame = false;
         }
-
         /// <summary>
         /// Allows the game component to perform any initialization it needs to before starting
         /// to run.  This is where it can query for any required services and load content.
@@ -57,8 +63,6 @@ namespace Assignment4
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add your update code here
-
             base.Update(gameTime);
         }
     }
