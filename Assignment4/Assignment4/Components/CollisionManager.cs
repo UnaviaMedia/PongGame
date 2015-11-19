@@ -46,21 +46,22 @@ namespace Assignment4
 			{
 				Rectangle paddleBounds = paddle.CollisionBounds;
 				Rectangle ballBounds = ball.CollisionBounds;
+				Vector2 collisionPosition = ball.Position;
+
+				Rectangle collisionRectangle = Rectangle.Intersect(paddleBounds, ballBounds);
 
 				if (ballBounds.Intersects(paddleBounds))
-				{
-					
-					if (ballBounds.X > paddleBounds.X + paddleBounds.Width)
+				{					
+					if (collisionRectangle.X > ball.Position.X)
 					{
-						ballBounds.X = paddleBounds.X + paddleBounds.Width;
+						collisionPosition.X = paddleBounds.X - ballBounds.Width;
 					}
 					else
 					{
-						ballBounds.X = paddleBounds.X;
+						collisionPosition.X = paddleBounds.X + paddleBounds.Width;
 					}
 
-
-
+					ball.Position = collisionPosition;
 
 					ball.Speed = new Vector2(ball.Speed.X * -1, ball.Speed.Y);
 				}
