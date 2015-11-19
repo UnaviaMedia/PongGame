@@ -49,7 +49,7 @@ namespace Assignment4
 
 				if (ballBounds.Intersects(paddleBounds))
 				{
-					
+					ball.Speed = new Vector2(ball.Speed.X * -1, ball.Speed.Y);
 				}
 			}
 

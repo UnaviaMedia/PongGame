@@ -90,13 +90,13 @@ namespace Assignment4
 			}
 			else if (keyboardState.IsKeyDown(downKey))
 			{
-				if (position.Y + texture.Height < PongGame.stage.Y)
+				if (position.Y + texture.Height < Settings.stage.Y)
 				{
 					position.Y += 5; 
 				}
 				else
 				{
-					position.Y = PongGame.stage.Y - texture.Height;
+					position.Y = Settings.stage.Y - texture.Height;
 				}
 			}
 
