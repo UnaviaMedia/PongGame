@@ -41,8 +41,6 @@ namespace Assignment4
 		/// </summary>
 		protected override void Initialize()
 		{
-			// TODO: Add your initialization logic here
-
 			base.Initialize();
 		}
 
@@ -86,7 +84,7 @@ namespace Assignment4
 		/// </summary>
 		protected override void UnloadContent()
 		{
-			// TODO: Unload any non ContentManager content here
+
 		}
 
 		/// <summary>
@@ -116,8 +114,6 @@ namespace Assignment4
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Color.Black);
-
-			// TODO: Add your drawing code here
 
 			base.Draw(gameTime);
 		}
