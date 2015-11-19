@@ -105,7 +105,7 @@ namespace Assignment4
             }
 
             KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Escape))
+            if (ks.IsKeyDown(Keys.Space))
             {
                 Reset();
             }
