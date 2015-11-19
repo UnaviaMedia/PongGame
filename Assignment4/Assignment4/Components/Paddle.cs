@@ -25,6 +25,8 @@ namespace Assignment4
 		private Keys upKey;
 		private Keys downKey;
 
+		public const Vector2 paddleSpeed = new Vector2(5, 5);
+
 		public Vector2 Position
 		{
 			get { return position; }
@@ -46,13 +48,13 @@ namespace Assignment4
 			}
 		}
 
-		public Paddle(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Vector2 speed, Keys upKey, Keys downKey)
+		public Paddle(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Keys upKey, Keys downKey)
 			: base(game)
 		{
 			this.spriteBatch = spriteBatch;
 			this.texture = texture;
 			this.position = position;
-			this.speed = speed;
+			this.speed = paddleSpeed;
 
 			this.upKey = upKey;
 			this.downKey = downKey;

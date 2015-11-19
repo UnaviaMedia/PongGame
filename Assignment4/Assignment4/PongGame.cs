@@ -28,6 +28,8 @@ namespace Assignment4
 		public PongGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
+
+			Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			Content.RootDirectory = "Content";
 		}
 
@@ -53,18 +55,16 @@ namespace Assignment4
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 			playerList = new List<Paddle>();
 
 			Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
-			Vector2 paddleSpeed = new Vector2(0, 5);
 
 			Vector2 paddle1Position = new Vector2(25, 50);
-			player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, paddleSpeed, Keys.A, Keys.Z);
+			player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, Keys.A, Keys.Z);
 			playerList.Add(player1);
 
 			Vector2 paddle2Position = new Vector2(Settings.stage.X - paddleTexture.Width - 25, 50);
-			player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, paddleSpeed, Keys.Up, Keys.Down);
+			player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, Keys.Up, Keys.Down);
 			playerList.Add(player2);
 
 			Texture2D ballTexture = Content.Load<Texture2D>("Images/Ball");
