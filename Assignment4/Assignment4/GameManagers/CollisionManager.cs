@@ -87,19 +87,7 @@ namespace Assignment4
 
 						int ballSpeedX = (int)(ball.Speed.X * Math.Cos(bounceAngle));
 						int ballSpeedY = (int)(ball.Speed.X * Math.Cos(bounceAngle));
-
-
-
-						/*if (verticalIntersectDistance > 0)
-						{
-							Console.WriteLine("Ball return down");
-							//ball.Speed = new Vector2(ball.Speed.X, Math.Abs(ball.Speed.Y));
-						}
-						else
-						{
-							Console.WriteLine("Ball return up");
-							//ball.Speed = new Vector2(ball.Speed.X, -Math.Abs(ball.Speed.Y));
-						}*/
+						ball.Speed = new Vector2(ballSpeedX, ballSpeedY);
 
 
 
