@@ -39,13 +39,12 @@ namespace Assignment4
 			}
 		}
 
-		public Ball(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Vector2 speed)
+		public Ball(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position)
 			: base(game)
 		{
 			this.spriteBatch = spriteBatch;
 			this.texture = texture;
 			this.position = position;
-			this.speed = speed;
 		}
 
 		/// <summary>
