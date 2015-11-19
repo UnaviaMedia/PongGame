@@ -171,7 +171,7 @@ namespace Assignment4
                 }
             }
 
-            if (ScoreManager.Player1Wins)
+            /*if (ScoreManager.Player1Wins)
             {
                 //TODO: Win condition handling
                 gameOn = false;
@@ -180,7 +180,7 @@ namespace Assignment4
             {
                 //TODO: Win condition handling
                 gameOn = false;
-            }
+            }*/
 
             base.Update(gameTime);
         }
