@@ -91,18 +91,27 @@ namespace Assignment4
             if (position.Y < 0 || position.Y > stage.Y - texture.Height)
             {
                 speed.Y = -speed.Y;
+
+				//Play a sound to indicate collision with the walls
+				PongGame.soundManager.PlaySound("click");
             }
 
             if (position.X < -texture.Width)
             {
                 ScoreManager.Player2Score++;
                 ScoreManager.Player1WonLastGame = false;
+
+				//Play a sound to indicate winning a point
+				PongGame.soundManager.PlaySound("ding");
                 Reset();
             }
             if (position.X > stage.X)
             {
                 ScoreManager.Player1Score++;
                 ScoreManager.Player1WonLastGame = true;
+
+				//Play a sound to indicate winning a point
+				PongGame.soundManager.PlaySound("ding");
                 Reset();
             }
 
