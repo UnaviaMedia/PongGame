@@ -44,11 +44,15 @@ namespace Assignment4
 		{
 			foreach (Paddle paddle in playerList)
 			{
+				//Get the collision boundaries of the paddle and ball
 				Rectangle paddleBounds = paddle.CollisionBounds;
 				Rectangle ballBounds = ball.CollisionBounds;
-				Vector2 collisionPosition = ball.Position;
 
+				//Find the intersection of the ball and paddle
 				Rectangle collisionRectangle = Rectangle.Intersect(paddleBounds, ballBounds);
+
+				//Store the post-collision position of the ball
+				Vector2 collisionPosition = ball.Position;
 
 				if (ballBounds.Intersects(paddleBounds))
 				{
@@ -57,15 +61,16 @@ namespace Assignment4
 						//Right/Left collision
 						if (collisionRectangle.X > ball.Position.X)
 						{
-							//Left collision
+							//Left-paddle collision
 							collisionPosition.X = paddleBounds.X - ballBounds.Width;
 						}
 						else
 						{
-							//Right collision
+							//Right-paddle collision
 							collisionPosition.X = paddleBounds.X + paddleBounds.Width;
 						}
 
+						//Reverse the X-speed
 						ball.Speed = new Vector2(ball.Speed.X * -1, ball.Speed.Y);
 					}
 					else
@@ -73,18 +78,20 @@ namespace Assignment4
 						//Top/Bottom collision
 						if (collisionRectangle.Y > ball.Position.Y)
 						{
-							//Top collision
+							//Top-paddle collision
 							collisionPosition.Y = paddleBounds.Y - ballBounds.Height;
 						}
 						else
 						{
-							//Bottom collision
+							//Bottom-paddle collision
 							collisionPosition.Y = paddleBounds.Y + paddleBounds.Height;
 						}
 
+						//Reverse the Y-speed
 						ball.Speed = new Vector2(ball.Speed.X, ball.Speed.Y * -1);
 					}
 
+					//Update the position of the ball to the post-collision position
 					ball.Position = collisionPosition;
 				}
 			}
