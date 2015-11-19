@@ -16,17 +16,17 @@ namespace Assignment4
     /// </summary>
     public class PongGame : Game
     {
-		//Graphics components
+        //Graphics components
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
-		//Player list and ball
+        //Player list and ball
         private List<Paddle> playerList;
         private Paddle player1;
         private Paddle player2;
         private Ball ball;
 
-		//Player score
+        //Player score
         private SpriteFont gameFont;
         private Scoreboard player1ScoreBoard;
         private Scoreboard player2ScoreBoard;
@@ -45,19 +45,19 @@ namespace Assignment4
 
         const int WIN_SCORE = 2;
 
-		//Game managers
-		private CollisionManager collisionManager;
-		public static SoundManager soundManager;
+        //Game managers
+        private CollisionManager collisionManager;
+        public static SoundManager soundManager;
 
-		/// <summary>
-		/// Create and initialize the PongGame
-		/// </summary>
+        /// <summary>
+        /// Create and initialize the PongGame
+        /// </summary>
         public PongGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-			//Store the size of the game window
+            //Store the size of the game window
             Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
         }
 
@@ -83,7 +83,7 @@ namespace Assignment4
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			//Create a new list of players
+            //Create a new list of players
             playerList = new List<Paddle>();
 
 
@@ -94,37 +94,37 @@ namespace Assignment4
             player2ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(Settings.stage.X - 72, 0), "Kendall", false);
             this.Components.Add(player2ScoreBoard);
 
-			//Load the paddle texture
+            //Load the paddle texture
             Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
 
-			//Create player 1
+            //Create player 1
             Vector2 paddle1Position = new Vector2(25, 50);
             player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, Keys.A, Keys.Z);
             playerList.Add(player1);
 
-			//Create player 2
+            //Create player 2
             Vector2 paddle2Position = new Vector2(Settings.stage.X - paddleTexture.Width - 25, 50);
             player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, Keys.Up, Keys.Down);
             playerList.Add(player2);
 
-			//Create the ball
+            //Create the ball
             Texture2D ballTexture = Content.Load<Texture2D>("Images/Ball");
             ball = new Ball(this, spriteBatch, ballTexture);
             this.Components.Add(ball);
 
-			//Add each player to the GameComponents list
+            //Add each player to the GameComponents list
             foreach (Paddle paddle in playerList)
             {
                 this.Components.Add(paddle);
             }
 
-			//Create a new collision manager
+            //Create a new collision manager
             collisionManager = new CollisionManager(this, playerList, ball);
             this.Components.Add(collisionManager);
 
-			//Create a new sound manager
-			soundManager = new SoundManager(this);
-			this.Components.Add(soundManager);
+            //Create a new sound manager
+            soundManager = new SoundManager(this);
+            this.Components.Add(soundManager);
         }
 
         /// <summary>
@@ -152,18 +152,7 @@ namespace Assignment4
             {
                 this.Exit();
             }
-
-            if (keyboardState.IsKeyDown(Keys.Space))
-            {
-                if(!ball.IsMoving)
-                {
-                    ball.Reset();
-                    ScoreManager.Reset(); 
-                    //TODO: reset paddles 
-                }
-            }
-
-            if(keyboardState.IsKeyDown(Keys.Enter))
+            if (keyboardState.IsKeyDown(Keys.Enter))
             {
                 if (!gameOver)
                 {
@@ -171,15 +160,23 @@ namespace Assignment4
                 }
             }
 
-            if (ScoreManager.Player1Wins)
+            if (ScoreManager.Player1Score >= 2)
             {
                 //TODO: Win condition handling
-                gameOn = false;
+                EndGame();
             }
-            if (ScoreManager.Player2Wins)
+            if (ScoreManager.Player2Score >= 2)
             {
                 //TODO: Win condition handling
-                gameOn = false;
+                EndGame();
+            }
+
+            if (keyboardState.IsKeyDown(Keys.Space))
+            {
+                if (gameOver)
+                {
+                    ResetGame();
+                }
             }
 
             base.Update(gameTime);
@@ -194,6 +191,30 @@ namespace Assignment4
             GraphicsDevice.Clear(Color.Black);
 
             base.Draw(gameTime);
+        }
+
+        public void ResetGame()
+        {
+            gameOver = false;
+            ball.Reset();
+            ScoreManager.Reset();
+            //TODO: reset paddles 
+
+            foreach (var item in playerList)
+            {
+                item.Enabled = true;
+            }
+            ball.Enabled = true;
+        }
+        public void EndGame()
+        {
+            gameOn = false;
+            gameOver = true;
+            foreach (var item in playerList)
+            {
+                item.Enabled = false;
+            }
+            ball.Enabled = false;
         }
     }
 }
