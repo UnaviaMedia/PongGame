@@ -55,6 +55,7 @@ namespace Assignment4
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+			playerList = new List<Paddle>();
 
 			Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
 			Vector2 paddleSpeed = new Vector2(0, 5);
