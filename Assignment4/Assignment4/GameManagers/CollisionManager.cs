@@ -96,8 +96,8 @@ namespace Assignment4
 					//Update the position of the ball to the post-collision position
 					ball.Position = collisionPosition;
 
-					//Play a sound
-					SoundManager.PlaySound("click");
+					//Play a collision sound
+					PongGame.soundManager.PlaySound("click");
 				}
 			}
 
