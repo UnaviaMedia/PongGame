@@ -21,7 +21,8 @@ namespace Assignment4
         const int MAX_SPEED = 9;
         private SpriteBatch spriteBatch;
         private Texture2D texture;
-        private Vector2 position;
+		private Vector2 position;
+		private Vector2 origin;
         private bool isMoving;
         public bool IsMoving
         {
@@ -44,6 +45,11 @@ namespace Assignment4
             get { return position; }
             set { position = value; }
         }
+		public Vector2 Origin
+		{
+			get { return origin; }
+			set { origin = value; }
+		}
 
         public Rectangle CollisionBounds
         {
@@ -64,7 +70,8 @@ namespace Assignment4
             initialPosition = new Vector2(stage.X / 2 - texture.Width / 2, stage.Y / 2 - texture.Height / 2);
             position = initialPosition;
             speed = GetSpeed();
-            isMoving = false;
+			isMoving = false;
+			origin = new Vector2(texture.Width / 2, texture.Height / 2);
         }
 
         /// <summary>

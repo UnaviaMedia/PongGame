@@ -96,7 +96,7 @@ namespace Assignment4
 			//Load the paddle texture
             Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
 
-			//Create the player 1
+			//Create player 1
             Vector2 paddle1Position = new Vector2(25, 50);
             player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, Keys.A, Keys.Z);
             playerList.Add(player1);

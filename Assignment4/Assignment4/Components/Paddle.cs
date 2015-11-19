@@ -20,6 +20,7 @@ namespace Assignment4
 		private SpriteBatch spriteBatch;
 		private Texture2D texture;
 		private Vector2 position;
+		private Vector2 origin;
 		private Vector2 speed;
 		private Rectangle collisionBounds;
 		private Keys upKey;
@@ -31,6 +32,12 @@ namespace Assignment4
 		{
 			get { return position; }
 			set { position = value; }
+		}
+
+		public Vector2 Origin
+		{
+			get { return origin; }
+			set { origin = value; }
 		}
 
 		public Vector2 Speed
@@ -64,9 +71,10 @@ namespace Assignment4
 			this.texture = texture;
 			this.position = position;
 			this.speed = new Vector2(0, PADDLE_SPEED);
-
 			this.upKey = upKey;
 			this.downKey = downKey;
+
+			origin = new Vector2(texture.Width / 2, texture.Height / 2);
 		}
 
 		/// <summary>
