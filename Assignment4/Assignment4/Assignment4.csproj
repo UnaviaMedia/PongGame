@@ -73,11 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Ball.cs" />
-    <Compile Include="Components\CollisionManager.cs" />
+    <Compile Include="GameManagers\CollisionManager.cs" />
     <Compile Include="Components\Paddle.cs" />
     <Compile Include="Components\Scoreboard.cs" />
     <Compile Include="Components\ScoreManager.cs" />
     <Compile Include="Components\Settings.cs" />
+    <Compile Include="GameManagers\SoundManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PongGame.cs" />
