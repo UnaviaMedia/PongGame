@@ -76,6 +76,20 @@ namespace Assignment4
 							collisionPosition.X = paddleBounds.X + paddleBounds.Width;
 						}
 
+						//Get the vertical distance between the ball and paddle centers (positive is ball center below paddle center)
+						int verticalDistance =  (ballBounds.Y + ballBounds.Height / 2) - (paddleBounds.Y + paddleBounds.Height / 2);
+
+						if (verticalDistance > 0)
+						{
+							Console.WriteLine("Ball return down");
+						}
+						else
+						{
+							Console.WriteLine("Ball return up");
+						}
+
+
+
 						//Reverse the X-speed
 						ball.Speed = new Vector2(ball.Speed.X * -1, ball.Speed.Y);
 					}
