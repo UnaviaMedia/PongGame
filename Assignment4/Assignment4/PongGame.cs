@@ -205,6 +205,7 @@ namespace Assignment4
             foreach (var item in playerList)
             {
                 item.Enabled = true;
+                item.Reset();
             }
             ball.Enabled = true;
         }
