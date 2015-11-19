@@ -162,13 +162,11 @@ namespace Assignment4
 
             if (ScoreManager.Player1Score >= 2 && !gameOver)
             {
-                //TODO: Win condition handling
                 showWinner("Doug");
                 EndGame();
             }
             if (ScoreManager.Player2Score >= 2 && !gameOver)
             {
-                //TODO: Win condition handling
                 showWinner("Kendall");
                 EndGame();
             }
