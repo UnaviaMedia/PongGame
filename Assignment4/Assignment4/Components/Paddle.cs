@@ -4,7 +4,7 @@
  * Revision history:
  *  Nov 19, 2015 : Created, Kendall Roth
  *                 
-*/
+ */
 
 using System;
 using System.Collections.Generic;
@@ -25,27 +25,21 @@ namespace Assignment4
 	/// </summary>
 	public class Paddle : DrawableGameComponent
 	{
+		//Constants
+		public const int PADDLE_SPEED = 5;
+
 		private SpriteBatch spriteBatch;
 		private Texture2D texture;
 		private Vector2 position;
-		private Vector2 origin;
 		private Vector2 speed;
 		private Rectangle collisionBounds;
 		private Keys upKey;
 		private Keys downKey;
 
-		public const int PADDLE_SPEED = 5;
-
 		public Vector2 Position
 		{
 			get { return position; }
 			set { position = value; }
-		}
-
-		public Vector2 Origin
-		{
-			get { return origin; }
-			set { origin = value; }
 		}
 
 		public Vector2 Speed
@@ -78,11 +72,10 @@ namespace Assignment4
 			this.spriteBatch = spriteBatch;
 			this.texture = texture;
 			this.position = position;
-			this.speed = new Vector2(0, PADDLE_SPEED);
 			this.upKey = upKey;
 			this.downKey = downKey;
-
-			origin = new Vector2(texture.Width / 2, texture.Height / 2);
+			
+			speed = new Vector2(0, PADDLE_SPEED);
 		}
 
 		/// <summary>
