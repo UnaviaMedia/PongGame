@@ -42,13 +42,7 @@ namespace Assignment4
         private SpriteFont gameFont;
         private Scoreboard player1ScoreBoard;
         private Scoreboard player2ScoreBoard;
-        private bool gameOn;
         private bool gameOver;
-        public bool GameOn
-        {
-            get { return gameOn; }
-            set { gameOn = value; }
-        }
         public bool GameOver
         {
             get { return gameOver; }
@@ -81,7 +75,6 @@ namespace Assignment4
         /// </summary>
         protected override void Initialize()
         {
-            gameOn = false;
             gameOver = false;
             base.Initialize();
         }
@@ -163,13 +156,6 @@ namespace Assignment4
             {
                 this.Exit();
             }
-            if (keyboardState.IsKeyDown(Keys.Enter))
-            {
-                if (!gameOver)
-                {
-                    gameOn = true;
-                }
-            }
 
             if (ScoreManager.Player1Score >= 2 && !gameOver)
             {
@@ -208,7 +194,6 @@ namespace Assignment4
         /// </summary>
         public void ResetGame()
         {
-            gameOn = false;
             gameOver = false;
             ball.Reset();
             ScoreManager.Reset();
@@ -227,7 +212,6 @@ namespace Assignment4
         /// </summary>
         public void EndGame()
         {
-            gameOn = false;
             gameOver = true;
             soundManager.PlaySound("applause");
             foreach (var item in playerList)
