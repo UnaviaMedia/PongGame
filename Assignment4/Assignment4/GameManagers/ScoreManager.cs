@@ -22,20 +22,20 @@ namespace Assignment4
     /// <summary>
     /// An abstract class to keep track of players' scores
     /// </summary>
-    public abstract class ScoreManager : Microsoft.Xna.Framework.GameComponent
+    public abstract class ScoreManager : GameComponent
     {
         private static int player1Score;
         public static int Player1Score
         {
-            get { return ScoreManager.player1Score; }
-            set { ScoreManager.player1Score = value; }
+            get { return player1Score; }
+            set { player1Score = value; }
         }
 
         private static int player2Score;
         public static int Player2Score
         {
-            get { return ScoreManager.player2Score; }
-            set { ScoreManager.player2Score = value; }
+            get { return player2Score; }
+            set { player2Score = value; }
         }
 
         /// <summary>
@@ -66,6 +66,7 @@ namespace Assignment4
         {
             base.Update(gameTime);
         }
+
         /// <summary>
         /// Resets the score manager to its initial state
         /// </summary>
