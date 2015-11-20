@@ -76,8 +76,9 @@ namespace Assignment4
 							collisionPosition.X = paddleBounds.X + paddleBounds.Width;
 						}
 
+						#region ChangeReturnAngle
 						//Get the vertical distance between the ball and paddle centers (positive is ball center below paddle center)
-						int verticalIntersectDistance =  (ballBounds.Y + ballBounds.Height / 2) - (paddleBounds.Y + paddleBounds.Height / 2);
+						/*int verticalIntersectDistance =  (ballBounds.Y + ballBounds.Height / 2) - (paddleBounds.Y + paddleBounds.Height / 2);
 						double normalizedVerticalIntersectDistance = verticalIntersectDistance / (paddleBounds.Height / 2);
 
 						//double MAX_BOUNCE_ANGLE = (Math.PI * 180) * 75;
@@ -87,9 +88,8 @@ namespace Assignment4
 
 						int ballSpeedX = (int)(ball.Speed.X * Math.Cos(bounceAngle));
 						int ballSpeedY = (int)(ball.Speed.X * Math.Cos(bounceAngle));
-						ball.Speed = new Vector2(ballSpeedX, ballSpeedY);
-
-
+						ball.Speed = new Vector2(ballSpeedX, ballSpeedY);*/
+						#endregion
 
 						//Reverse the X-speed
 						ball.Speed = new Vector2(ball.Speed.X * -1, ball.Speed.Y);
