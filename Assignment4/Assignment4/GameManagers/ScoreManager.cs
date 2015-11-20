@@ -1,3 +1,10 @@
+/* Project: Assignment4 - ScoreManager.cs
+ * Purpose: Keeps track of both players' scores
+ * 
+ * Revision history:
+ *  Nov 19, 2015 : Created, Doug Epp
+*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +20,9 @@ using Microsoft.Xna.Framework.Media;
 namespace Assignment4
 {
     /// <summary>
-    /// This is a game component that implements IUpdateable.
+    /// An abstract class to keep track of players' scores
     /// </summary>
-    public class ScoreManager : Microsoft.Xna.Framework.GameComponent
+    public abstract class ScoreManager : Microsoft.Xna.Framework.GameComponent
     {
         private static int player1Score;
         public static int Player1Score
@@ -31,20 +38,15 @@ namespace Assignment4
             set { ScoreManager.player2Score = value; }
         }
 
-        private static bool player1WonLastGame;
-
-        public static bool Player1WonLastGame
-        {
-            get { return player1WonLastGame; }
-            set { player1WonLastGame = value; }
-        }
-
+        /// <summary>
+        /// Constructor for the ScoreManager class
+        /// </summary>
+        /// <param name="game">The pong game which uses the score manager</param>
         public ScoreManager(Game game)
             : base(game)
         {
             player1Score = 0;
             player2Score = 0;
-            player1WonLastGame = false;
         }
         /// <summary>
         /// Allows the game component to perform any initialization it needs to before starting
@@ -64,12 +66,13 @@ namespace Assignment4
         {
             base.Update(gameTime);
         }
-
+        /// <summary>
+        /// Resets the score manager to its initial state
+        /// </summary>
         public static void Reset()
         {
             player1Score = 0;
             player2Score = 0;
-            player1WonLastGame = false;
         }
     }
 }

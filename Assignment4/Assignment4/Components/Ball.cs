@@ -113,7 +113,6 @@ namespace Assignment4
             if (position.X < -texture.Width)
             {
                 ScoreManager.Player2Score++;
-                ScoreManager.Player1WonLastGame = false;
 
                 //Play a sound to indicate winning a point
                 PongGame.soundManager.PlaySound("ding");
@@ -122,7 +121,6 @@ namespace Assignment4
             if (position.X > stage.X)
             {
                 ScoreManager.Player1Score++;
-                ScoreManager.Player1WonLastGame = true;
 
                 //Play a sound to indicate winning a point
                 PongGame.soundManager.PlaySound("ding");
@@ -167,12 +165,32 @@ namespace Assignment4
         private Vector2 GetSpeed()
         {
             Random rand = new Random();
-            int newSpeedX = rand.Next(MIN_SPEED, MAX_SPEED);
-            if (ScoreManager.Player1WonLastGame)
+            int newSpeedX = 0;
+            //Gets a new X speed between -Max Speed and Max Speed,
+            //and makes sure that its absolute speed is greater than Min Speed
+            while (newSpeedX == 0)
             {
-                newSpeedX = -newSpeedX;
+                newSpeedX = rand.Next(-MAX_SPEED, MAX_SPEED);
+                if (Math.Abs(newSpeedX) < MIN_SPEED)
+                {
+                    newSpeedX = 0;
+                }
             }
-            int newSpeedY = -rand.Next(MIN_SPEED, MAX_SPEED);
+
+            //Gets a new Y speed between -Max Speed and Max Speed,
+            //and makes sure that its absolute speed is greater than Min Speed
+            int newSpeedY = 0;
+
+            while (newSpeedY == 0)
+            {
+                newSpeedY = rand.Next(-MAX_SPEED, MAX_SPEED);
+                if (Math.Abs(newSpeedY) < MIN_SPEED)
+                {
+                    newSpeedY = 0;
+                }
+            }
+
+
 
             Vector2 newSpeed = new Vector2(newSpeedX, newSpeedY);
             return newSpeed;
