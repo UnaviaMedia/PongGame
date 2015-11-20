@@ -27,7 +27,7 @@ namespace Assignment4
         private SpriteBatch spriteBatch;
         private SpriteFont font;
         private string message;
-        private int delay;
+        private const int DELAY = 50;
         private int delayCounter;
         private bool flag;
         private Vector2 position;
@@ -45,7 +45,6 @@ namespace Assignment4
             this.font = font;
             this.message = message + " Wins!\n(Press space to reset)";
 
-            delay = 50;
             position = new Vector2(PongGame.stage.X / 2 - font.MeasureString(message).X, 50);
         }
 
@@ -66,7 +65,7 @@ namespace Assignment4
         public override void Update(GameTime gameTime)
         {
             delayCounter++;
-            if (delayCounter > delay)
+            if (delayCounter > DELAY)
             {
                 flag = !flag;
                 delayCounter = 0;
