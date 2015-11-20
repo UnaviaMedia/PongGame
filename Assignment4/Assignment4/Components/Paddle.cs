@@ -3,6 +3,7 @@
  * 
  * Revision history:
  *  Nov 19, 2015 : Created, Kendall Roth
+ *                 
 */
 
 using System;
@@ -20,7 +21,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Assignment4
 {
 	/// <summary>
-	/// This is a game component that implements IUpdateable.
+	/// A class to model a paddle in a game of Pong
 	/// </summary>
 	public class Paddle : DrawableGameComponent
 	{
