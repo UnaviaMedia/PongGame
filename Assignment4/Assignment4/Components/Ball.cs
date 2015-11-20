@@ -73,7 +73,7 @@ namespace Assignment4
             this.spriteBatch = spriteBatch;
             this.texture = texture;
 
-            stage = Settings.stage;
+            stage = PongGame.stage;
             initialPosition = new Vector2(stage.X / 2 - texture.Width / 2, stage.Y / 2 - texture.Height / 2);
             position = initialPosition;
             speed = GetSpeed();
