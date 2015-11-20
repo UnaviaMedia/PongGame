@@ -46,7 +46,7 @@ namespace Assignment4
             this.message = message + " Wins!\n(Press space to reset)";
 
             delay = 50;
-            position = new Vector2(Settings.stage.X / 2 - font.MeasureString(message).X, 50);
+            position = new Vector2(PongGame.stage.X / 2 - font.MeasureString(message).X, 50);
         }
 
         /// <summary>
