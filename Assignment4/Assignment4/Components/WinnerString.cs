@@ -31,6 +31,7 @@ namespace Assignment4
         private int delayCounter;
         private bool flag;
         private Vector2 position;
+
         /// <summary>
         /// Constructor for the winner's string
         /// </summary>
@@ -73,6 +74,7 @@ namespace Assignment4
 
             base.Update(gameTime);
         }
+
         /// <summary>
         /// Called when the string needs to be drawn
         /// </summary>
