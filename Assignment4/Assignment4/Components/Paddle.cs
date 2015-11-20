@@ -1,3 +1,10 @@
+/* Project: Assignment4 - Paddle.cs
+ * Purpose: Models the paddles for a game of pong
+ * 
+ * Revision history:
+ *  Nov 19, 2015 : Created, Kendall Roth
+*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
