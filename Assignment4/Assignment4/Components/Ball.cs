@@ -1,3 +1,10 @@
+/* Project: Assignment4 - Ball.cs
+ * Purpose: Models the bouncing ball in a game of Pong
+ * 
+ * Revision history:
+ *  Nov 19, 2015 : Created, Kendall Roth
+ *                 Added properties and methods, Doug Epp
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,7 +138,10 @@ namespace Assignment4
 
             base.Update(gameTime);
         }
-
+        /// <summary>
+        /// Called when the ball needs to be drawn
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
@@ -140,6 +150,7 @@ namespace Assignment4
 
             base.Draw(gameTime);
         }
+
         /// <summary>
         /// Resets ball position and speed
         /// </summary>
