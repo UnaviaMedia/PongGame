@@ -67,6 +67,12 @@ namespace Assignment4
             }
         }
 
+		/// <summary>
+		/// Constructor for the Ball
+		/// </summary>
+		/// <param name="game">Game reference</param>
+		/// <param name="spriteBatch">SpriteBatch reference for drawing the ball</param>
+		/// <param name="texture">Texture to draw the ball with</param>
         public Ball(Game game, SpriteBatch spriteBatch, Texture2D texture)
             : base(game)
         {
@@ -136,6 +142,7 @@ namespace Assignment4
 
             base.Update(gameTime);
         }
+
         /// <summary>
         /// Called when the ball needs to be drawn
         /// </summary>
@@ -158,6 +165,7 @@ namespace Assignment4
             speed = Vector2.Zero;
             isMoving = false;
         }
+
         /// <summary>
         /// Generates random speed
         /// </summary>
@@ -195,6 +203,7 @@ namespace Assignment4
             Vector2 newSpeed = new Vector2(newSpeedX, newSpeedY);
             return newSpeed;
         }
+
         /// <summary>
         /// Starts ball moving
         /// </summary>

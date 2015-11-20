@@ -130,8 +130,7 @@ namespace Assignment4
 
 			base.Update(gameTime);
 		}
-
-
+		
 		/// <summary>
 		/// Draw the game component
 		/// </summary>

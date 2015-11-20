@@ -221,6 +221,7 @@ namespace Assignment4
             }
             ball.Enabled = true;
         }
+
         /// <summary>
         /// Ends and disables the game
         /// </summary>
@@ -235,6 +236,7 @@ namespace Assignment4
             }
             ball.Enabled = false;
         }
+
         /// <summary>
         /// Displays the winner in a blinking string
         /// </summary>
