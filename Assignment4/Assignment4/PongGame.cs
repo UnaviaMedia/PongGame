@@ -1,3 +1,12 @@
+/*
+ * Project: Assignment 4 - PongGame.cs
+ * Purpose: Manage game components and timing
+ * 
+ * Revision History:
+ *		Kendall Roth	Nov-19-2015:	Created
+ *										Added paddles
+ */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
