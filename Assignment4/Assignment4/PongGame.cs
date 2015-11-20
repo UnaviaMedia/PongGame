@@ -29,6 +29,8 @@ namespace Assignment4
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
+		public static Vector2 stage;
+
         //Player list and ball
         private List<Paddle> playerList;
         private Paddle player1;
@@ -68,7 +70,7 @@ namespace Assignment4
             Content.RootDirectory = "Content";
 
             //Store the size of the game window
-            Settings.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
         }
 
         /// <summary>
@@ -100,19 +102,19 @@ namespace Assignment4
             player1ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(0, 0), "Doug", true);
             this.Components.Add(player1ScoreBoard);
 
-            player2ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(Settings.stage.X - 72, 0), "Kendall", false);
+            player2ScoreBoard = new Scoreboard(this, spriteBatch, gameFont, new Vector2(stage.X - 72, 0), "Kendall", false);
             this.Components.Add(player2ScoreBoard);
 
             //Load the paddle texture
             Texture2D paddleTexture = Content.Load<Texture2D>("Images/Paddle");
 
             //Create player 1
-            Vector2 paddle1Position = new Vector2(25, Settings.stage.Y / 2 - paddleTexture.Height / 2);
+            Vector2 paddle1Position = new Vector2(25, stage.Y / 2 - paddleTexture.Height / 2);
             player1 = new Paddle(this, spriteBatch, paddleTexture, paddle1Position, Keys.A, Keys.Z);
             playerList.Add(player1);
 
             //Create player 2
-			Vector2 paddle2Position = new Vector2(Settings.stage.X - paddleTexture.Width - 25, Settings.stage.Y / 2 - paddleTexture.Height / 2);
+			Vector2 paddle2Position = new Vector2(stage.X - paddleTexture.Width - 25, stage.Y / 2 - paddleTexture.Height / 2);
             player2 = new Paddle(this, spriteBatch, paddleTexture, paddle2Position, Keys.Up, Keys.Down);
             playerList.Add(player2);
 
