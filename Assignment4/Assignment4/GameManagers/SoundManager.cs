@@ -1,3 +1,12 @@
+/*
+ * Project: Assignment 4 - SoundManager.cs
+ * Purpose: Manage soundeffects
+ * 
+ * Revision History:
+ *		Kendall Roth	Nov-19-2015:	Created
+ *										Added static sound effect dictionary
+ */ 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
