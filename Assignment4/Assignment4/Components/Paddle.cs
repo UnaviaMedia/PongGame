@@ -118,13 +118,13 @@ namespace Assignment4
 			else if (keyboardState.IsKeyDown(downKey))
 			{
 				//Move the paddle down if possible
-				if (position.Y + texture.Height < Settings.stage.Y)
+				if (position.Y + texture.Height < PongGame.stage.Y)
 				{
 					position += speed;
 				}
 				else
 				{
-					position.Y = Settings.stage.Y - texture.Height;
+					position.Y = PongGame.stage.Y - texture.Height;
 				}
 			}
 
@@ -150,7 +150,7 @@ namespace Assignment4
 		/// </summary>
 		public void Reset()
 		{
-			position = new Vector2(position.X, Settings.stage.Y / 2 - texture.Height / 2);
+			position = new Vector2(position.X, PongGame.stage.Y / 2 - texture.Height / 2);
 		}
 	}
 }
