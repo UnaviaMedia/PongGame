@@ -1,3 +1,14 @@
+/*
+ * Project: Assignment 4 - CollisionManager.cs
+ * Purpose: Manage collisions between paddle and ball
+ * 
+ * Revision History:
+ *		Kendall Roth	Nov-19-2015:	Created
+ *										Added constructor and components to manage
+ *										Added collision detection
+ *										Added post-collision positioning
+ */ 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
