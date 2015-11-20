@@ -1,3 +1,11 @@
+/* Project: Assignment4 - Scordboard.cs
+ * Purpose: Models the string to display players' scores
+ * 
+ * Revision history:
+ *  Nov 19, 2015 : Created, Doug Epp
+ *                 
+*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +21,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Assignment4
 {
     /// <summary>
-    /// This is a game component that implements IUpdateable.
+    /// This is a class to display players' scores
     /// </summary>
     public class Scoreboard : Microsoft.Xna.Framework.DrawableGameComponent
     {
@@ -59,6 +67,10 @@ namespace Assignment4
 
             base.Update(gameTime);
         }
+        /// <summary>
+        /// Called when the score string needs to be drawn
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
