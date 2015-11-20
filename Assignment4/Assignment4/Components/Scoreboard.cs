@@ -31,6 +31,16 @@ namespace Assignment4
         private string name;
         private int score;
         private bool isPlayer1;
+
+		/// <summary>
+		/// Constructor for each players scoreboard
+		/// </summary>
+		/// <param name="game">Game reference</param>
+		/// <param name="spriteBatch">Spritebatch reference for drawing the scoreboard</param>
+		/// <param name="font">Font for the scoreboard</param>
+		/// <param name="position">Position to draw the scoreboard at</param>
+		/// <param name="name">Player's name</param>
+		/// <param name="isPlayer1">Whether or not the player is player 1</param>
         public Scoreboard(Game game, SpriteBatch spriteBatch, SpriteFont font, Vector2 position, string name, bool isPlayer1)
             : base(game)
         {
